@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>9c Test - Climbing Potential Calculator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             max-width: 600px;
             margin: 32px auto;
+            padding: 0 16px;
         }
 
         h1 {
@@ -72,6 +74,50 @@
         .credit a:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 600px) {
+            body {
+                max-width: 100%;
+                margin: 12px auto;
+                padding: 0 6px;
+            }
+
+            h1 {
+                font-size: 1.4em;
+            }
+
+            label,
+            select,
+            input[type="text"],
+            input[type="number"] {
+                font-size: 1em;
+                margin: 18px 0 10px 0;
+            }
+
+            button {
+                width: 100%;
+                font-size: 1.1em;
+                padding: 12px 0;
+            }
+
+            .result {
+                padding: 10px;
+                font-size: 1em;
+            }
+
+            .grades {
+                font-size: 1em;
+            }
+
+            .main-grade {
+                font-size: 1.1em;
+            }
+
+            .credit {
+                font-size: 0.93em;
+                margin-top: 2em;
+            }
+        }
     </style>
 </head>
 
@@ -133,7 +179,9 @@
         Calculation method from
         <a href="https://climbapedia.org/content/climbing-potential" target="_blank" rel="noopener noreferrer">
             climbapedia
-        </a>. The code for this web page is generated using GPT-4.1
+        </a>.<br />
+        The <a href="https://github.com/tommyjtl/9c-test" target="_blank" rel="noopener noreferrer">code</a>
+        for this web page is generated using GPT-4.1
     </div>
 
     <script>
