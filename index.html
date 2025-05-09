@@ -18,10 +18,14 @@
         }
 
         label,
-        select,
         input[type="text"] {
             display: block;
             margin: 24px 0 12px 0;
+        }
+
+        select {
+            display: block;
+            margin: 0px 0 12px 0;
         }
 
         .result {
@@ -75,6 +79,12 @@
             text-decoration: underline;
         }
 
+        .button-group {
+            display: flex;
+            gap: 0px;
+            margin-top: 18px;
+        }
+
         @media (max-width: 600px) {
             body {
                 max-width: 100%;
@@ -117,6 +127,16 @@
                 font-size: 0.93em;
                 margin-top: 2em;
             }
+
+            .button-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .button-group button {
+                width: 100%;
+                margin-left: 0 !important;
+            }
         }
     </style>
 </head>
@@ -125,19 +145,19 @@
     <h2>9c Test: Climbing Potential Calculator</h2>
     <form id="climbForm" autocomplete="off">
         <label>
-            1. Max hang on a 20mm edge for 5s:<br>
+            <b>1. Max hang on a 20mm edge for 5s:</b><br>
             <span style="font-size:0.95em;">(Total percent of bodyweight, e.g., 150 for bodyweight + 50%)</span><br>
             <input type="number" id="fingerStrength" min="0" max="300" required>
         </label>
 
         <label>
-            2. Max two-arm pull-up (palms out, chin above bar):<br>
+            <b>2. Max two-arm pull-up (palms out, chin above bar):</b><br>
             <span style="font-size:0.95em;">(Total percent of bodyweight, e.g., 120 for bodyweight + 20%)</span><br>
             <input type="number" id="armStrength" min="0" max="300" required>
         </label>
 
         <label>
-            3. Best Body Tension Achievement:
+            <b>3. Best Body Tension Achievement:</b>
             <select id="bodyTension" required>
                 <option value="0">-- Select an option --</option>
                 <option value="1">10 sec L-sit (bent knees)</option>
@@ -154,7 +174,7 @@
         </label>
 
         <label>
-            4. Endurance - Max hang from bar (pick closest):
+            <b>4. Endurance - Max hang from bar (pick closest):</b><br>
             <select id="endurance" required>
                 <option value="0">-- Select an option --</option>
                 <option value="1">30 seconds</option>
@@ -170,7 +190,10 @@
             </select>
         </label>
 
-        <button type="submit">Calculate</button>
+        <div class="button-group">
+            <button type="submit">Calculate</button>
+            <button type="button" id="loadExample" style="margin-left:10px;">Load Example Data</button>
+        </div>
     </form>
 
     <div id="result" class="result" style="display:none"></div>
@@ -315,7 +338,14 @@
            <li>Body tension points: ${body}</li>
            <li>Endurance points: ${endu}</li>
          </ul>`;
-        }
+        };
+
+        document.getElementById('loadExample').onclick = function () {
+            document.getElementById('fingerStrength').value = 155;
+            document.getElementById('armStrength').value = 172;
+            document.getElementById('bodyTension').value = 7; // 5 sec Front Lever
+            document.getElementById('endurance').value = 5; // 2.5 minutes
+        };
     </script>
 </body>
 
