@@ -193,6 +193,7 @@
         <div class="button-group">
             <button type="submit">Calculate</button>
             <button type="button" id="loadExample" style="margin-left:10px;">Load Example Data</button>
+            <button type="button" id="loadAltExample" style="margin-left:10px;">Load Alt Example</button>
         </div>
     </form>
 
@@ -345,6 +346,13 @@
             document.getElementById('armStrength').value = 172;
             document.getElementById('bodyTension').value = 7; // 5 sec Front Lever
             document.getElementById('endurance').value = 5; // 2.5 minutes
+        };
+
+        document.getElementById('loadAltExample').onclick = function () {
+            document.getElementById('fingerStrength').value = 120;
+            document.getElementById('armStrength').value = 135;
+            document.getElementById('bodyTension').value = 3; // 30 sec L-sit (bent knees)
+            document.getElementById('endurance').value = 8; // 4 minutes
         };
     </script>
 </body>
